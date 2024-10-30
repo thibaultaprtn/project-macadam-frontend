@@ -55,16 +55,9 @@ const Catalog = () => {
           setChanged={setChanged}
         />
       )}
-      <div>Catalog</div>
-      <button
-        onClick={() => {
-          setDisplayAddItem(true);
-        }}
-      >
-        Rajouter un article
-      </button>
       <CatalogProductList
         items={items}
+        setDisplayAddItem={setDisplayAddItem}
         setItemToModify={setItemToModify}
         setDisplayModifyItem={setDisplayModifyItem}
       />

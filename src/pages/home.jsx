@@ -9,7 +9,7 @@ import HomeProductList from "../components/homeProductList";
 import Cart from "../components/cart";
 
 const Home = () => {
-  const { token, logOut } = useContext(GlobalContext);
+  const { token, logOut, trigger } = useContext(GlobalContext);
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
   const [products, setProducts] = useState([]);
@@ -43,7 +43,7 @@ const Home = () => {
       }
     };
     fetchproducts();
-  }, []);
+  }, [trigger]);
 
   return (
     <div>
@@ -54,15 +54,19 @@ const Home = () => {
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-around",
+          alignItems: "center",
         }}
       >
         <div></div>
-        <h2>Home Product List</h2>
+        <h2 style={{ fontSize: 25, fontWeight: "bold" }}>Liste des produits</h2>
 
         {token ? (
-          <button onClick={logOut}>Logout</button>
+          <button className="logbutton" onClick={logOut}>
+            Logout
+          </button>
         ) : (
           <button
+            className="logbutton"
             onClick={() => {
               navigate("/login");
             }}

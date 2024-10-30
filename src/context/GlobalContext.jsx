@@ -10,6 +10,7 @@ export const GlobalContext = createContext();
 
 export const GlobalContextProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
+  const [trigger, setTrigger] = useState(true);
 
   // const [cart, setCart] = useState([]);
   const [token, setToken] = useState(Cookies.get("token") || null);
@@ -19,12 +20,14 @@ export const GlobalContextProvider = ({ children }) => {
     Cookies.remove("token");
     setToken(null);
     setUsername(null);
+    setTrigger(!trigger);
   }
 
   function logIn(token, username) {
     Cookies.set("token", token, { expires: 7 });
     setToken(token);
     setUsername(username);
+    setTrigger(!trigger);
   }
 
   const [cart, setCart] = useState([]);
@@ -118,6 +121,7 @@ export const GlobalContextProvider = ({ children }) => {
       ) : (
         <GlobalContext.Provider
           value={{
+            trigger,
             username,
             token,
             setToken,

@@ -17,31 +17,38 @@ const HomeProductList = ({ products }) => {
         justifyContent: "space-between",
       }}
     >
-      <div className="container">
-        <div style={{ display: "flex", flexDirection: "row", gap: 20 }}>
+      <div className="container" style={{ minHeight: "100vh" }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            gap: 20,
+            flexWrap: "wrap",
+          }}
+        >
           {products.map((elem) => {
             // console.log("elem", elem);
             return (
               <>
                 {elem.isAvailable && (
                   <div
-                    style={{
-                      width: 150,
-                      height: 150,
-                      display: "flex",
-                      flexDirection: "column",
-                    }}
+                    className="productlist iconhover"
                     key={elem._id}
+                    onClick={() => {
+                      // console.log(elem._id);
+                      handleAddItem(elem);
+                    }}
                   >
-                    <p>{elem.model}</p>
+                    <p style={{ fontSize: 22, fontWeight: "bold" }}>
+                      {elem.model}
+                    </p>
                     <p>{elem.year}</p>
-                    <p>{elem.price.toFixed(2)} €</p>
+                    <p style={{ fontWeight: "bold" }}>
+                      {elem.price.toFixed(2)} €
+                    </p>
                     <FaCartArrowDown
                       className="iconhover"
-                      onClick={() => {
-                        // console.log(elem._id);
-                        handleAddItem(elem);
-                      }}
+                      style={{ alignSelf: "center", fontSize: 40 }}
                     />
                   </div>
                 )}

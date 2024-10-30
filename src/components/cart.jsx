@@ -3,6 +3,9 @@ import { GlobalContext } from "../context/GlobalContext";
 import axios from "axios";
 // import ValidationModal from "./validationModal";
 
+import { CgAdd } from "react-icons/cg";
+import { CgRemove } from "react-icons/cg";
+
 const Cart = () => {
   //   const [displayModal, setDisplayModal] = useState(false);
   const { username, total, cart, addItem, removeItem } =
@@ -23,21 +26,67 @@ const Cart = () => {
 
   return (
     <>
-      <div>
-        <h2>Panier</h2>
+      <div className="cartArea">
+        <h2 style={{ marginBottom: 10, fontSize: 25, fontWeight: "bold" }}>
+          Panier
+        </h2>
         <div>
           {cart.map((elem) => {
             return (
-              <div key={elem._id}>
+              <div
+                key={elem._id}
+                style={{
+                  marginTop: 5,
+                  marginBottom: 5,
+                  display: "flex",
+                  flexDirection: "row",
+                  gap: 10,
+                  alignItems: "center",
+                }}
+              >
+                <CgRemove
+                  style={{ fontSize: 20, color: "#bb1f32" }}
+                  className="iconhover"
+                  onClick={() => {
+                    removeItem(elem);
+                  }}
+                />
+                <CgAdd
+                  style={{ fontSize: 20, color: "#bb1f32" }}
+                  className="iconhover"
+                  onClick={() => {
+                    addItem(elem);
+                  }}
+                />
                 <p>
-                  {elem.model} x {elem.quantity}
+                  {elem.quantity} x {elem.model}
                 </p>
               </div>
             );
           })}
         </div>
-        <p>{total} €</p>
-        <button onClick={handleValidationSubmit}>Valider le panier</button>
+        <p
+          style={{
+            marginTop: 5,
+            marginBottom: 5,
+            fontSize: 20,
+            fontWeight: "bold",
+          }}
+        >
+          Total : {total} €
+        </p>
+        <button
+          className="logbutton"
+          style={{
+            marginTop: 5,
+            marginBottom: 5,
+            fontSize: 20,
+            fontWeight: "bold",
+          }}
+          onClick={handleValidationSubmit}
+        >
+          Valider le panier
+        </button>
       </div>
     </>
   );
