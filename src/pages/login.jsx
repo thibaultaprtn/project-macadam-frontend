@@ -25,8 +25,8 @@ const Login = () => {
         <div className="loginbackground">
           <div className="loginbox" style={{ gap: 15 }}>
             <p style={{ paddingBottom: 15 }}>Vous êtes déjà connecté</p>
-            <Link className="redirectlink" to="/admin/dashboard">
-              Aller au dashboard des commandes
+            <Link className="redirectlink" to="/">
+              Aller à la liste des produits
             </Link>
             <button
               className="loginbutton"

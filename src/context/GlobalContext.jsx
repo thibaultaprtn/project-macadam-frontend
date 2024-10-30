@@ -94,20 +94,20 @@ export const GlobalContextProvider = ({ children }) => {
     fetchdata();
   }, []);
 
-  // useEffect(() => {
-  //   let tot = 0;
-  //   // console.log("cart length", cart.length);
-  //   // console.log(cart);
-  //   if (cart.length === 0) {
-  //     setTotal(tot);
-  //   } else {
-  //     for (let i = 0; i < cart.length; i++) {
-  //       tot = tot + cart[i].quantity * cart[i].product_price;
-  //     }
-  //     setTotal(tot.toFixed(2));
-  //   }
-  //   // console.log(tot);
-  // }, [cart]);
+  useEffect(() => {
+    let tot = 0;
+    // console.log("cart length", cart.length);
+    // console.log(cart);
+    if (cart.length === 0) {
+      setTotal(tot);
+    } else {
+      for (let i = 0; i < cart.length; i++) {
+        tot = tot + cart[i].quantity * cart[i].price;
+      }
+      setTotal(tot.toFixed(2));
+    }
+    // console.log(tot);
+  }, [cart]);
 
   // console.log(cart);
 
