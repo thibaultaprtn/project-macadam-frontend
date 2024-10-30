@@ -32,6 +32,7 @@ const Home = () => {
           const response = await axios.get(
             `${import.meta.env.VITE_BACKURL}/product/limited`
           );
+          // console.log(response.data);
           setProducts(response.data);
           // console.log(response.data);
         }

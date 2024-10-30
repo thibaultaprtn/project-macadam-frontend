@@ -5,18 +5,22 @@ import axios from "axios";
 
 const Cart = () => {
   //   const [displayModal, setDisplayModal] = useState(false);
+  const { username, total, cart, addItem, removeItem } =
+    useContext(GlobalContext);
   const handleValidationSubmit = async () => {
     try {
+      console.log(username);
       const response = await axios.post(
         `${import.meta.env.VITE_BACKURL}/cart`,
-        cart
+        { cart, username }
       );
-      console.log(response);
+      console.log(response.data);
+      alert(response.data.message);
     } catch (error) {
       console.log(error.message);
     }
   };
-  const { total, cart, addItem, removeItem } = useContext(GlobalContext);
+
   return (
     <>
       <div>

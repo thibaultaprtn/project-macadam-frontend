@@ -118,6 +118,7 @@ export const GlobalContextProvider = ({ children }) => {
       ) : (
         <GlobalContext.Provider
           value={{
+            username,
             token,
             setToken,
             logIn,
