@@ -40,3 +40,23 @@
 .read-the-docs {
   color: #888;
 } */
+
+.iconhover:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.additembutton {
+  border: none;
+  background-color: #1a8737;
+  width: 200px;
+  height: 40px;
+  border-radius: 10px;
+  color: white;
+  font-size: 20px;
+}
+
+.additembutton:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}

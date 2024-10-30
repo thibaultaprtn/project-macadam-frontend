@@ -25,7 +25,7 @@ const AdminRoute = ({ children }) => {
               },
             }
           );
-          console.log("response", response);
+          // console.log("response", response);
           // console.log("log testing", response.data);
           setIsAdmin(true);
         }
